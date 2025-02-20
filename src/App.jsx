@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 function App() {
   const [counter, setCounter] = useState(0);
   const [data, setData] = useState([]);
-
   const [timer, setTimer] = useState(new Date());
 
   const handleButton = () => {
@@ -17,7 +16,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer(new Date());
-    });
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
