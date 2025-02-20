@@ -17,15 +17,16 @@ function App() {
     const interval = setInterval(() => {
       setSeconds((prevSecond) => prevSecond + 1);
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
+
   return (
     <>
       <div>
         <h1>value:{counter}</h1>
         <button onClick={handleButton}>increament</button>
-        <p>Seconds: {seconds}</p>
+        <p>Second: {seconds}</p>
+
         <hr />
         {data.map((item) => {
           return (
