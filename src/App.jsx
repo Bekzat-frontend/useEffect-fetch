@@ -10,20 +10,23 @@ function App() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((json) => setData(json));
-  }, []);
+  });
   return (
     <>
       <div>
         <h1>value:{counter}</h1>
         <button onClick={handleButton}>increament</button>
         <hr />
-        {data.map((item) => (
-          <div key={item.id}>
-            <h1>name: {item.name}</h1>
-            <p>email: {item.email}</p>
-            <p>phone: {item.phone}</p>
-          </div>
-        ))}
+        {data.map((item) => {
+          return (
+            <div key={item.id}>
+              <h1>name: {item.name}</h1>
+              <p>email: {item.email}</p>
+              <p>phone: {item.phone}</p>
+              <p>address: {item.address.city}</p>
+            </div>
+          );
+        })}
       </div>
     </>
   );
