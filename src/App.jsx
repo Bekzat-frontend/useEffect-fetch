@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 function App() {
   const [counter, setCounter] = useState(0);
   const [data, setData] = useState([]);
-  const [seconds, setSeconds] = useState(0);
+
+  const [timer, setTimer] = useState(new Date());
 
   const handleButton = () => {
     setCounter(counter + 1);
@@ -15,8 +16,8 @@ function App() {
   });
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prevSecond) => prevSecond + 1);
-    }, 1000);
+      setTimer(new Date());
+    });
     return () => clearInterval(interval);
   }, []);
 
@@ -25,7 +26,7 @@ function App() {
       <div>
         <h1>value:{counter}</h1>
         <button onClick={handleButton}>increament</button>
-        <p>Second: {seconds}</p>
+        <p>{timer.toLocaleTimeString()}</p>
 
         <hr />
         {data.map((item) => {
